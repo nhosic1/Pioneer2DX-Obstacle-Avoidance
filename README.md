@@ -13,3 +13,8 @@ Based on obstacle points in 3D space, new robot trajectory is determined using p
 
 Project is written and organized as a ROS(Robot Operating System) package and tested in Gazebo simulator.
 
+## Simulation demo:
+
+
+https://user-images.githubusercontent.com/44199537/186067690-7aed0bbe-86ff-4846-944e-2115105d5e93.mp4
+
