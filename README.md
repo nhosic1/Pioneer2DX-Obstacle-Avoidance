@@ -1,7 +1,7 @@
 # Pioneer2DX-Obstacle-Avoidance
 ## Overview
 
-Purpose of this project is application of computer vision methods on data from monocular camera and odometry from robot's differential drive, with intent of recognizing nearby obstacles and avoiding them.
+Purpose of this project is the application of computer vision methods on data from monocular camera and odometry from robot's differential drive, with intent of recognizing nearby obstacles and avoiding them.
 
 Two methods are used for finding matching features from corresponding pairs of successive camera images. First method is detecting features on both images separately using detectors such as ORB, SIFT and SURF.
 Feature matching is done based on a distance function depending on the selected detector. Second method is finding features from first image using Schi-Thomasi detector, and then finding matching features from second image using Lucas-Kanade optical flow algorithm. 
