@@ -1,17 +1,13 @@
 # Pioneer2DX-Obstacle-Avoidance
 ## Overview
 
-Purpose of this project is the application of computer vision methods on data from monocular camera and odometry from robot's differential drive, with intent of recognizing nearby obstacles and avoiding them.
+The purpose of this project is the application of computer vision methods on data from monocular camera and odometry from robot's differential drive, with intent of recognizing nearby obstacles and avoiding them.
 
-Two methods are used for finding matching features from corresponding pairs of successive camera images. First method is detecting features on both images separately using detectors such as ORB, SIFT and SURF.
-Feature matching is done based on a distance function depending on the selected detector. Second method is finding features from first image using Schi-Thomasi detector, and then finding matching features from second image using Lucas-Kanade optical flow algorithm. 
-Results from these two methods are compared and analyzed to find their respective advantages.
+Two main methods are used for finding matching features from corresponding pairs of successive camera images. First method starts with detecting features on both images separately using detectors such as ORB, SIFT and SURF. Feature matching is done with an appropriate search algorithm, depending on the selected detector. Second method is finding features from the first image using Shi-Thomasi detector, and then finding matching features from the second image using Lucas-Kanade optical flow algorithm. The feature pairs are filtered in the end based on epipolar constraint. 
 
-After finding matching 2D features, 3D points are calculated using linear triangulation method in combination with RANSAC algorithm for filtering outliers. Distance between two camera images from odometry data is used to determine real scale of 3D points.
+From the 2D feature pairs, 3D points are calculated using linear triangulation method. For this step, it is necessary to know the change of position and orientation between two images, which is obtained from odometry data. Based on obstacle points in 3D space, a new robot trajectory is determined using the proposed algorithm.
 
-Based on obstacle points in 3D space, new robot trajectory is determined using proposed algorithm.
-
-Project is written and organized as a ROS(Robot Operating System) package and tested in Gazebo simulator.
+The project is written and organized as a ROS(Robot Operating System) package and tested in Gazebo simulator. Results from the mentioned methods are compared and analyzed to find their respective advantages.
 
 ## Simulation demo:
 
