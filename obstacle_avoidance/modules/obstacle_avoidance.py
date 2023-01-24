@@ -55,7 +55,6 @@ def avoid_obstacle(pnts2D, t_delay, distance, robot_velocity, pos_new):
             right_side_points.append(p_R)
     
     if len(points_in_the_way) > 0 and len(pnts2D) > 3:
-        print("Prepreka")
         front_limit_point = min(points_in_the_way, key=lambda pnt: pnt[1])
         left_limit_point = min(pnts2D, key=lambda pnt: pnt[0])
         right_limit_point = max(pnts2D, key=lambda pnt: pnt[0])  
@@ -69,13 +68,6 @@ def avoid_obstacle(pnts2D, t_delay, distance, robot_velocity, pos_new):
         z_err = (abs(z_avg - z_real)/z_real)*100
         x_min_err = (abs(left_limit_x + 0.5)/0.5)*100
         x_max_err = (abs(right_limit_x - 0.5)/0.5)*100
-        print("z_real = {0:.3f}".format(z_real))
-        print("z_avg = {0:.3f}".format(z_avg))
-        print("z_err = {0:.3f}".format(z_err))
-        print("x_min = {0:.3f}".format(left_limit_x))
-        print("x_min_err = {0:.3f}".format(x_min_err))
-        print("x_max = {0:.3f}".format(right_limit_x))
-        print("x_max_err = {0:.3f}".format(x_max_err))
 
         if len(left_side_points) > 0:
             for p in left_side_points:

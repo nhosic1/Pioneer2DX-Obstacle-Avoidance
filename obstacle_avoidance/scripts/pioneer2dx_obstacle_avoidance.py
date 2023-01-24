@@ -126,9 +126,6 @@ def callback(img, odom):
                         points3D = (np.dot(R.T, points3D.T) + np.dot(-R.T, T)).T
                         
                         points2D = oa.transform_to_2D_XZ_coordinate_system(np.array(points3D))
-                        print("Broj 3D tačaka: " + str(np.shape(points2D)[0]))
-                        print("pos = ")
-                        print(pos_new)
                         
                         t1 = time.time()
                         t_delay = t1 - t0
@@ -150,7 +147,6 @@ def callback(img, odom):
                             flag = 2
                             rotation_old = rotation_new
                             brojac = brojac + 1
-                            rospy.loginfo("Prepreka broj " + str(brojac))
 
                         # pointcloud = ndarray_to_pointcloud2((points3D_new)[:-1, :].T.tolist())
                         # pointcloud_pub.publish(pointcloud)
