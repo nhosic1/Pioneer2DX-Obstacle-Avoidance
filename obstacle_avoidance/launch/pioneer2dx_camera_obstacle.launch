@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="world_name" value="$(find obstacle_avoidance)/worlds/simulation3.world"/> 
+    <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+    
+    <!-- set use_sim_time flag -->
+    <param name="/use_sim_time" value="true"/>
+   
+    <!-- launch gazebo and rviz with dedicated GPU -->
+    <env name="__NV_PRIME_RENDER_OFFLOAD" value="1" />
+    <env name="__GLX_VENDOR_LIBRARY_NAME" value="nvidia" />
+    
+    <!-- start gazebo server and client -->
+    <node name="gazebo" pkg="gazebo_ros" type="gazebo" args= "$(arg world_name)" />
+    
+    <!-- Spawn a robot into Gazebo -->
+    <!--
+    <node name="spawn_sdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find obstacle_avoidance)/models/pioneer2DX/model.sdf -sdf -y 7.2 -Y -1.57 -model model" />
+    -->
+    
+    
+    <!-- start rviz -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" />  -->  
+    
+
+</launch>
+
+
