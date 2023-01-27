@@ -205,8 +205,6 @@ def draw_optical_flow(old_image, good_old, good_new):
         mask = cv2.line(mask, (int(a),int(b)),(int(c),int(d)), color[i].tolist(), 2)
         frame = cv2.circle(old_image,(int(a),int(b)),5,color[i].tolist(),-1)
     
-    # Focus of expantion
-    # frame = cv2.circle(old_image,(int(old_image.shape[1]/2),int(old_image.shape[0]/2)),10,color[i].tolist(),-1)
     img = cv2.add(frame,mask)
 
     cv2.imshow('frame', img)
